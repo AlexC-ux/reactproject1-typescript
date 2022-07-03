@@ -12,7 +12,7 @@ root.render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<View />} />                   { /*   Главная страница     */}
-            <Route path="login" element={<LogPage />}>              { /*   Страница авторизации /войти     */}
+            <Route path="login" element={<LogPage />}>              { /*   Страница авторизации: /войти     */}
         </Route>
     </Routes>
 </BrowserRouter>);

@@ -1,0 +1,31 @@
+.fieldi {
+    margin: 10px auto 0 auto;
+    border-collapse: collapse;
+}
+.content, .allLevels {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.celli {
+    background-size: 70%;
+    text-align: center;
+    margin: 1px;
+    border: 1px solid #f78413;
+    background-color: #ffdec6;
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+}
+
+.cellil {
+    width: 82px;
+    height: 82px;
+}
+td.crosss {
+    background-color: #fff;
+}
+
+td.zeroess {
+    background-color: #f78413;
+}

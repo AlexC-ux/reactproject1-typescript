@@ -31,19 +31,11 @@ class TickTackToe extends React.Component<{}, { BrickClass: string[][], counter:
                 let element: string = answs[el];
 
                 if (element.toString() === "XXX") {
-                    this.state = {
-                        BrickClass: [["", "", ""], ["", "", ""], ["", "", ""]],
-                        counter: 0,
-                        onclicks: [[() => this.clickBrick(0, 0), () => this.clickBrick(0, 1), () => this.clickBrick(0, 2)], [() => this.clickBrick(1, 0), () => this.clickBrick(1, 1), () => this.clickBrick(1, 2)], [() => this.clickBrick(2, 0), () => this.clickBrick(2, 1), () => this.clickBrick(2, 2)]],
-                        wintext: ["Выиграли крестики"]
-                    };
+                    this.state.wintext[0] = "Выиграли крестики!";
+                    this.state.BrickClass.fill(["","",""]);
                 } else if (element.toString() === "000") {
-                    this.state = {
-                        BrickClass: [["", "", ""], ["", "", ""], ["", "", ""]],
-                        counter: 0,
-                        onclicks: [[() => this.clickBrick(0, 0), () => this.clickBrick(0, 1), () => this.clickBrick(0, 2)], [() => this.clickBrick(1, 0), () => this.clickBrick(1, 1), () => this.clickBrick(1, 2)], [() => this.clickBrick(2, 0), () => this.clickBrick(2, 1), () => this.clickBrick(2, 2)]],
-                        wintext: ["Выиграли нолики"]
-                    };
+                    this.state.wintext[0] = "Выиграли нолики!";
+                    this.state.BrickClass.fill(["", "", ""]);
                 }
             }
         }

@@ -26,6 +26,7 @@ function ShowTickTackToeComponent() {
 
     /**Функция проверяет игровые поля на предмет наличия победителя */
     function VerifyResults() {
+
         let results: string[] = new Array<string>(8);
 
         for (var v = 0; v < 3; v++) {
@@ -42,11 +43,13 @@ function ShowTickTackToeComponent() {
             } else if (value == "zeroesszeroesszeroess") {
                 SetGameResult("Игра окончена! Победили нолики!");
                 UpdateSteps(10);
-            } else if (steps==9) {
-                SetGameResult("Игра окончена! Ничья!");
-                UpdateSteps(10);
             }
         })
+
+        if (steps == 8 && gameResult=="") {
+            SetGameResult("Игра окончена! Победила дружба!");
+            UpdateSteps(10);
+        }
     }
 
     /**
@@ -83,7 +86,6 @@ function ShowTickTackToeComponent() {
     return (
         <div className="container">
             <p className="text-middle">{gameResult}</p>
-            <p className="text-middle">Всего ходов: {steps}</p>
             <table>
                 <tbody>
                     {GetRow(0)}{GetRow(1)}{GetRow(2)}

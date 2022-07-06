@@ -1,7 +1,4 @@
-﻿import { render } from '@testing-library/react';
-import { table } from 'console';
-import React, { ReactComponentElement, RefObject, useRef, useState } from 'react';
-import ReactDOM from 'react-dom';
+﻿import React, { ReactComponentElement, useState } from 'react';
 import ".././css/ticktacktoe.css";
 
 

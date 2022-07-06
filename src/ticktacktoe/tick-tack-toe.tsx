@@ -42,6 +42,9 @@ function ShowTickTackToeComponent() {
             } else if (value == "zeroesszeroesszeroess") {
                 SetGameResult("Игра окончена! Победили нолики!");
                 UpdateSteps(10);
+            } else if (steps==9) {
+                SetGameResult("Игра окончена! Ничья!");
+                UpdateSteps(10);
             }
         })
     }

@@ -33,7 +33,7 @@ function ShowTickTackToeComponent() {
             results[v+3] = `${cellValues[0][v]}${cellValues[1][v]}${cellValues[2][v]}`;
         }
         results[6] = `${cellValues[0][0]}${cellValues[1][1]}${cellValues[2][2]}`;
-        results[7] = `${cellValues[0][2]}${cellValues[1][1]}${cellValues[0][2]}`;
+        results[7] = `${cellValues[0][2].to}${cellValues[1][1]}${cellValues[2][0]}`;
 
         results.forEach((value) => {
             if (value == "crossscrossscrosss") {

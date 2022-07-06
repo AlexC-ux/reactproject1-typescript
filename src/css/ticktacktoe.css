@@ -14,18 +14,23 @@
     border: 1px solid #f78413;
     background-color: #ffdec6;
     font-size: 1.5rem;
-    width: 45px;
-    height: 45px;
 }
 
 .cellil {
-    width: 82px;
-    height: 82px;
-}
-td.crosss {
-    background-color: #fff;
+    width: 100px;
+    height: 100px;
 }
 
-td.zeroess {
-    background-color: #f78413;
+.hide-true{
+    display:none;
+}
+
+td.crosss, div.crosss {
+    background: url("https://app-98511.games.s3.yandex.net/98511/zao1bol1ycwnujsdqdma9hcpx4myxcka/images/k.svg") center center no-repeat transparent;
+    background-color: #ffdec6;
+}
+
+td.zeroess, div.zeroess{
+    background: url("https://app-98511.games.s3.yandex.net/98511/zao1bol1ycwnujsdqdma9hcpx4myxcka/images/n.svg") center center no-repeat transparent;
+    background-color: #ffdec6;
 }

@@ -1,4 +1,4 @@
-﻿import React, { ReactComponentElement, useState } from 'react';
+﻿import React, { useState } from 'react';
 import ".././css/ticktacktoe.css";
 
 
@@ -24,9 +24,16 @@ function ShowTickTackToeComponent() {
         SetCellState(cellsValues);
     }
 
+    /**true если игра закончена (есть победитель / ничья), иначе false */
+    let [winnerExists, UpdWinnerExists] = useState(false);
+
+    /**Значение стороны которая сейчас делает ход */
+    const [currentTurn, UpdCurrentTurn] = useState("zeroess");
+
     /**Функция проверяет игровые поля на предмет наличия победителя */
     function VerifyResults() {
 
+        /**Массив с текущими результатами игры */
         let results: string[] = new Array<string>(8);
 
         for (var v = 0; v < 3; v++) {
@@ -37,17 +44,20 @@ function ShowTickTackToeComponent() {
         results[7] = `${cellValues[0][2]}${cellValues[1][1]}${cellValues[2][0]}`;
 
         results.forEach((value) => {
-            if (value == "crossscrossscrosss") {
+            if (value === "crossscrossscrosss") {
+                UpdWinnerExists(true);
                 SetGameResult("Игра окончена! Победили крестики!");
                 UpdateSteps(10);
-            } else if (value == "zeroesszeroesszeroess") {
+            } else if (value === "zeroesszeroesszeroess") {
+                UpdWinnerExists(true);
                 SetGameResult("Игра окончена! Победили нолики!");
                 UpdateSteps(10);
             }
         })
 
-        if (steps == 8 && gameResult=="") {
+        if (steps === 8 && gameResult === "" && !winnerExists) {
             SetGameResult("Игра окончена! Победила дружба!");
+            UpdWinnerExists(true);
             UpdateSteps(10);
         }
     }
@@ -58,11 +68,13 @@ function ShowTickTackToeComponent() {
      * @param cell Столбец в котором расположена ячейка
      */
     function GetCellClickEvent(row: number, cell: number) {
-        if (steps < 9 && cellValues[row][cell] == "") {
+        if (steps < 9 && cellValues[row][cell] === "") {
             if (steps % 2 > 0) {
                 UpdateSpecificCell("crosss", row, cell);
+                UpdCurrentTurn("zeroess");
             } else {
                 UpdateSpecificCell("zeroess", row, cell);
+                UpdCurrentTurn("crosss")
             }
             UpdateSteps(steps + 1);
             VerifyResults();
@@ -85,8 +97,16 @@ function ShowTickTackToeComponent() {
     
     return (
         <div className="container">
-            <p className="text-middle">{gameResult}</p>
-            <table>
+            <div className={`row hide-${winnerExists}`}>
+                <div className="col-4" />
+                <h4 className="col-2">
+                    Сейчас ходят:
+                </h4>
+                <div className={`col-2 celli cellil ${currentTurn}`} />
+                <div className="col-4" />
+            </div>
+            <h2 className="text-center">{gameResult}</h2>
+            <table className="fieldi">
                 <tbody>
                     {GetRow(0)}{GetRow(1)}{GetRow(2)}
                 </tbody>
